@@ -1,0 +1,57 @@
+body {
+  background-image: linear-gradient(to right, rgba(251, 194, 235, 1), rgba(166, 193, 238, 1));
+}
+
+#user-camps {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+ul {
+  display: inline;
+  margin: 5px;
+  padding: 0px;
+}
+
+.rounded-top {
+  background-color: #000;
+  height: 200px;
+}
+
+.p-4 {
+  background-color: #f8f9fa;
+}
+
+.rounded-top {
+  background-color: #000;
+  height: 200px;
+}
+
+img {
+  min-width: 150px;
+  min-height: 180px;
+  max-width: 150px;
+  max-height: 180px;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  z-index: 1;
+}
+
+.img-fluid {
+  max-width: 150px;
+  max-height: 180px;
+}
+
+#editButton {
+  z-index: 1;
+}
+
+#name {
+  margin-top: 120px;
+}
+
+#bio {
+  white-space: pre-line;
+}

@@ -1,0 +1,54 @@
+<% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/admin.css" />
+
+<div class="row text-center mt-5">
+  <div class="col-md-12 mb-4">
+    <h1 class="">Admin Control Panel</h1>
+    <h2 class="lead"><i class="bi bi-unlock-fill"></i> Denotes User is Admin</h2>
+    <h2 class="lead"><i class="bi bi-lock-fill" aria-hidden="true"></i> Denotes User is not Admin</h2>
+  </div>
+</div>
+<% for(user of users.slice(1)) { %>
+<div class="card w-50 mx-auto mb-4">
+  <div class="card-header text-center">
+    <% if(user.isAdmin) {%>
+    <h5 class="bi bi-unlock-fill"><a href="/users/<%=user.id%>"><%= user.firstName + " " + user.lastName %> </a></h5>
+    <% }else{ %>
+    <h5><a href="/users/<%=user.id%>"><%= user.firstName + " " + user.lastName %> </a><i class="bi bi-lock-fill" aria-hidden="true"></i></h5>
+    <% } %>
+  </div>
+  <div class="card-horizontal">
+    <div class="img-square-wrapper">
+      <img src="<%= user.avatar[0].url %>" alt="Generic placeholder image" class="img-fluid" />
+    </div>
+    <div class="card-body">
+      <h4 class="card-text">Actions:</h4>
+
+      <% if(user.isAdmin) { %>
+      <div class="form-check form-switch">
+        <form action="/admin/<%=user.id%>?_method=PUT" method="POST">
+          <label class="form-check-label" for="makeAdmin">Toggle switch to remove admin rights</label>
+          <input class="form-check-input" type="checkbox" id="check" name="makeAdmin" onchange="this.form.submit();" checked />
+          <!-- <button class="btn btn-warning" type="submit">Make Admin</button> -->
+        </form>
+      </div>
+
+      <% } else { %>
+      <div class="form-check form-switch">
+        <form action="/admin/<%=user.id%>?_method=PUT" method="POST">
+          <label class="form-check-label" for="makeAdmin">Toggle to give user admin rights</label>
+          <input class="form-check-input" type="checkbox" id="check" name="makeAdmin" onchange="this.form.submit();" />
+          <!-- <button class="btn btn-warning" type="submit">Make Admin</button> -->
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="card-footer text-center">
+    <small class="text-muted">Joined on <%= moment(user.createdAt).format('MMMM Do YYYY, h:mm:ss a')%></small>
+  </div>
+</div>
+<% } %>
+
+<script src="/javascripts/check.js"></script>

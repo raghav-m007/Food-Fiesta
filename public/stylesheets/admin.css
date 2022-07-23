@@ -1,0 +1,42 @@
+.img-thumbnail {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0), 3px 5px 3px rgba(0, 0, 0, 0.1), 6px 8px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+
+.img-thumbnail img {
+  border-radius: 20px;
+}
+.img-square-wrapper {
+  height: 100%;
+  width: 150px;
+}
+.img-square-wrapper img {
+  height: 180px;
+  width: 150px;
+}
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.card-body {
+  position: relative;
+}
+
+#userbtnDelete {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0px;
+}
+.adminbtn {
+  margin-top: 20px;
+  align-items: center;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}

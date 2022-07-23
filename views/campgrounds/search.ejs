@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="mt-4">
+  <% if (campgrounds.length) { %>
+  <h1 class="fs-2 mb-4">Search Results for "<%= search %>"</h1>
+  <% } else { %>
+  <h2 class="fs-2 mb-4">No results Found "<%= search %>"</h2>
+  <p>Please try searching again. You can use terms from the campground name or location in your query.</p>
+  <% } %>
+</div>
+
+<div class="container">
+  <div class="row text-center campgrounds">
+    <div class="row d-flex">
+      <% for (let campground of campgrounds) { %>
+      <div class="col-sm-4 mb-3">
+        <div class="card" id="camp-cards">
+          <% if(campground.images.length) {%>
+          <img class="img-fluid" alt="" src="<%=campground.images[0].url%>" id="camp-images" />
+          <% } else { %>
+          <img
+            class="img-fluid"
+            alt=""
+            src="https://images.unsplash.com/photo-1468245856972-a0333f3f8293?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+          />
+          <% } %>
+          <div class="card-body">
+            <h5 class="card-title m-0"><a href="/campgrounds/<%=campground._id%>"> <%= campground.title %> </a></h5>
+            <small class="text-muted"><%= campground.location%></small>
+            <p class="card-text"><%= campground.description.substring(0,97) %>...</p>
+            <!-- <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>">View <%=campground.title%></a> -->
+          </div>
+        </div>
+      </div>
+      <%}%>
+    </div>
+  </div>
+</div>
